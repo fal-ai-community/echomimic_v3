@@ -45,14 +45,8 @@ import gradio as gr
 import random
 import gc
 
-if torch.cuda.is_available():
-    device = "cuda" 
-    if torch.cuda.get_device_capability()[0] >= 8:
-        dtype = torch.bfloat16
-    else:
-        dtype = torch.float16
-else:
-    device = "cpu"
+device = "cuda"
+dtype = torch.bfloat16
 
 # --------------------- Configuration ---------------------
 
@@ -208,7 +202,7 @@ pipeline = WanFunInpaintAudioPipeline(
     text_encoder=text_encoder,
     scheduler=scheduler,
     clip_image_encoder=clip_image_encoder,
-)
+).to(device)
 
 # Enable TeaCache if required
 if config.enable_teacache:
