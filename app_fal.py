@@ -72,7 +72,7 @@ class Config:
 
         # Paths
         self.config_path = "config/config.yaml"
-        self.model_name = "models/Wan2.1-Fun-1.3B-InP"
+        self.model_name = "models/Wan2.1-Fun-V1.1-1.3B-InP"
         self.transformer_path = "models/transformer/diffusion_pytorch_model.safetensors"
 
         # Sampler and audio settings
