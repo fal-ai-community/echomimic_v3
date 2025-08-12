@@ -241,7 +241,7 @@ def generate(
     os.makedirs(save_path, exist_ok=True)
 
     # Process test cases
-    generator = torch.Generator(device=device).manual_seed(seed)
+    generator = torch.Generator().manual_seed(seed)
 
     # Load reference image and prompt
     ref_img = Image.open(image).convert("RGB")
