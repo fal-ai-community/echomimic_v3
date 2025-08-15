@@ -224,7 +224,8 @@ def generate(
     partial_video_length,
     guidance_scale,
     audio_guidance_scale,
-    seed_param
+    seed_param,
+    num_inference_steps=None
 ):
     if seed_param<0:
         seed = random.randint(0, np.iinfo(np.int32).max)
@@ -318,7 +319,7 @@ def generate(
             use_dynamic_acfg      = config.use_dynamic_acfg,
             guidance_scale        = guidance_scale,
             audio_guidance_scale  = audio_guidance_scale,
-            num_inference_steps   = config.num_inference_steps,
+            num_inference_steps   = config.num_inference_steps if num_inference_steps is None else num_inference_steps,
             video                 = input_video,
             mask_video            = input_video_mask,
             clip_image            = clip_image,
